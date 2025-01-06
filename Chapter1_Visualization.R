@@ -78,13 +78,68 @@ ggplot(
   data = penguins,
   mapping = aes(x = bill_length_mm, y = bill_depth_mm)
 ) + 
-  geom_point(aes(color = species, shape = species)) +
+  geom_point() 
+### 4.
+ggplot(
+  data = penguins,
+  mapping = aes(x = species, y = bill_depth_mm)
+) +
+  geom_point()
+
+ggplot(
+  data = penguins,
+  mapping = aes(x = species, y = bill_depth_mm)
+) +
+  geom_boxplot()
+## 6.
+ggplot(
+  data = penguins,
+  mapping = aes(x = bill_length_mm, y = bill_depth_mm)
+) + 
+  geom_point(na.rm = TRUE) 
+
+## 7,
+ggplot(
+  data = penguins,
+  mapping = aes(x = bill_length_mm, y = bill_depth_mm)
+) + 
+  geom_point() +
   labs(
-    title = "Penguin bill width and bill length"
-    ,subtitle= "Dimensions for Adelie, Chinstrap, and Getnoo Penguins",
-    x = "Bill Length (mm)",
-    y = "Bill Depth (mm)",
-    color = "Species", shape = "Species"
+    caption = "Data come from the palmerpenguins package."
+  )
+## 8.
+ggplot(
+  data = penguins,
+  mapping = aes(x = flipper_length_mm, y = body_mass_g)
   ) +
-  scale_color_colorblind()
+  geom_point(aes(color = bill_depth_mm)) +
+  geom_smooth(method = 'auto')
+
+## 9.
+ggplot(
+  data = penguins,
+  mapping = aes(x = flipper_length_mm, y = body_mass_g, color = island)
+) +
+  geom_point() +
+  geom_smooth(se = FALSE)
+
+## 10.
+ggplot(
+  data = penguins,
+  mapping = aes(x = flipper_length_mm, y = body_mass_g)
+) +
+  geom_point() +
+  geom_smooth()
+
+ggplot() +
+  geom_point(
+    data = penguins,
+    mapping = aes(x = flipper_length_mm, y = body_mass_g)
+  )+
+  geom_smooth(
+    data = penguins,
+    mapping = aes(x = flipper_length_mm, y = body_mass_g)
+  )
+  
+## ggplot2 Calls
 
